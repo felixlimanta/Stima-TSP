@@ -2,7 +2,8 @@
 #include "node.h"
 #include "complete_tour_weight_node.h"
 #include "reduced_cost_matrix_node.h"
-#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 #ifndef TSP_H
@@ -11,20 +12,26 @@ using namespace std;
 #define REDUCED_COST_MATRIX	0
 #define COMPLETE_TOUR_WEIGHT 1
 
-typedef pair<double,Node*> QueueElmt;
+struct Leaf {
+	double cost;
+	Node* node_addr;
+	
+	Leaf(double cost, Node* node_addr): cost(cost), node_addr(node_addr) {};
+};
 
-class QueueElmtComparator {
-	public:
-		bool operator()(QueueElmt n1, QueueElmt n2) {
-			return n1.first < n2.first;
-		}
+struct LeafComparator {
+	bool operator()(const Leaf& lhs, const Leaf& rhs) {
+		return lhs.cost > rhs.cost;
+	}
 };
 
 class TSP {
 	private:
 		SquareMatrix matrix;
 		Node* root;
-		priority_queue<QueueElmt, vector<QueueElmt>, QueueElmtComparator> queue;
+		vector<Leaf> leaves;
+		
+		
 		vector<int> final_path;
 		double final_cost;
 		

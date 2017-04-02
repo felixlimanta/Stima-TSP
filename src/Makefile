@@ -2,7 +2,7 @@ CC = g++
 OPTIONS = -std=c++11
 SRC = $(wildcard *.cpp)
 OBJS = $(SRC:.cpp=.o)
-BIN = test.exe
+BIN = ../bin/tsp.exe
 
 .PHONY: subdirs $(SUBDIRS) all clean
 

@@ -7,7 +7,8 @@ TSP::TSP (int method, const SquareMatrix& m) {
 	} else if (method == COMPLETE_TOUR_WEIGHT) {
 		root = new CompleteTourWeightNode(0, m);
 	}
-	queue.push(make_pair(root->getCost(),root));
+	leaves.push_back(Leaf(root->getCost(),root));	
+	make_heap(leaves.begin(),leaves.end(),LeafComparator());
 }
 
 TSP::~TSP() {
@@ -24,15 +25,18 @@ double TSP::getCost() {
 
 void TSP::findPath() {
 	Node* curr_node;
-	do {
-		curr_node = queue.top().second;
-		queue.pop();
+	do {		
+		curr_node = leaves.front().node_addr;
+		pop_heap(leaves.begin(),leaves.end(),LeafComparator());
+		leaves.pop_back();
+				
 		
 		while (!curr_node->isSolution()) {
 			expandNode(*curr_node);
 						
-			curr_node = queue.top().second;
-			queue.pop();
+			curr_node = leaves.front().node_addr;
+			pop_heap(leaves.begin(),leaves.end(),LeafComparator());
+			leaves.pop_back();
 		}
 	} while (matrix[curr_node->getID()][0] == INF);
 	
@@ -46,7 +50,8 @@ void TSP::expandNode(Node& n) {
 	Node** child = n.getChild();
 	for (int i = 0; i < matrix.getSize(); ++i) {
 		if (child[i] != NULL)
-			queue.push(make_pair(i, child[i]));
-	}
+			leaves.push_back(Leaf(child[i]->getCost(), child[i]));
+			push_heap(leaves.begin(),leaves.end(),LeafComparator());
+	}	
 }
 

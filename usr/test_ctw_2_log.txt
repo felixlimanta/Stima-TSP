@@ -1,0 +1,17 @@
+
+Matrix: 
+inf	16	27	89	34	65	12	10	
+16	inf	56	78	32	16	64	32	
+27	56	inf	82	57	35	80	25	
+89	78	82	inf	34	51	19	47	
+34	32	57	34	inf	42	59	41	
+65	16	35	51	42	inf	76	82	
+12	64	80	19	59	76	inf	38	
+10	32	25	47	41	82	38	inf	
+
+Path:	0 -> 6 -> 3 -> 4 -> 7 -> 2 -> 5 -> 1 -> 0
+Cost: 178.5
+Elapsed time: 1001 us
+GraphViz file generated to ../usr/test_ctw_2.gv
+Graph image generated to ../usr/test_ctw_2.png
+Graph image generated to ../usr/test_ctw_2.svg

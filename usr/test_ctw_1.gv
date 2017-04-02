@@ -1,0 +1,10 @@
+graph {
+	graph [layout=circo, overlap=scale, splines=true, mindist=2.5];
+	node [shape=circle];
+	0 [peripheries=2];	1 -- 0 [len=9.76271, label="12"];
+	2 -- 0 [len=8.13559, label="10", color=red, penwidth=3.0, fontcolor=red];
+	2 -- 1 [len=7.32203, label="9", color=red, penwidth=3.0, fontcolor=red];
+	3 -- 0 [len=4.0678, label="5", color=red, penwidth=3.0, fontcolor=red];
+	3 -- 1 [len=6.50847, label="8", color=red, penwidth=3.0, fontcolor=red];
+	3 -- 2 [len=12.2034, label="15"];
+}

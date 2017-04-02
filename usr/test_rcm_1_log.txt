@@ -1,0 +1,14 @@
+
+Matrix: 
+inf	20	30	10	11	
+15	inf	16	4	2	
+3	5	inf	2	4	
+19	6	18	inf	3	
+16	4	7	16	inf	
+
+Path:	0 -> 3 -> 1 -> 4 -> 2 -> 0
+Cost: 28
+Elapsed time: 0 us
+GraphViz file generated to ../usr/test_rcm_1.gv
+Graph image generated to ../usr/test_rcm_1.png
+Graph image generated to ../usr/test_rcm_1.svg
