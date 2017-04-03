@@ -1,3 +1,7 @@
+// File		: reduced_cost_matrix.cpp
+// Author	: Felix Limanta
+// Date		: March 30, 2017
+
 #include "reduced_cost_matrix_node.h"
 #include <algorithm>
 

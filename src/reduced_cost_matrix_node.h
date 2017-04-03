@@ -1,3 +1,7 @@
+// File		: reduced_cost_matrix.h
+// Author	: Felix Limanta
+// Date		: March 30, 2017
+
 #include "node.h"
 
 #ifndef REDUCED_COST_MATRIX_NODE_H

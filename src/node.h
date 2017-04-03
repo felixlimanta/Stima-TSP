@@ -1,3 +1,7 @@
+// File		: node.h
+// Author	: Felix Limanta
+// Date		: March 30, 2017
+
 #include "square_matrix.h"
 #include <vector>
 

@@ -1,3 +1,7 @@
+// File		: node.cpp
+// Author	: Felix Limanta
+// Date		: March 30, 2017
+
 #include "node.h"
 
 Node::Node(int id, const SquareMatrix& m): id(id), parent(NULL), cost(0) {	

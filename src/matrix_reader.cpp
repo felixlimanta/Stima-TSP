@@ -1,5 +1,8 @@
-#include "matrix_reader.h"
+// File		: matrix_reader.cpp
+// Author	: Felix Limanta
+// Date		: March 30, 2017
 
+#include "matrix_reader.h"
 #include <fstream>
 #include <sstream>
 

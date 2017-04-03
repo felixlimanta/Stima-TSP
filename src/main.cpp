@@ -1,3 +1,7 @@
+// File		: main.cpp
+// Author	: Felix Limanta
+// Date		: April 2, 2017
+
 #include "graphviz_generator.h"
 #include "matrix_reader.h"
 #include "square_matrix.h"
@@ -26,7 +30,7 @@ int main (int argc, char** argv) {
 	}
 	
 	SquareMatrix matrix = MatrixReader(fname).getMatrix();
-	cout << "\nMatrix: \n" << matrix;
+	cout << "Matrix: \n" << matrix << '\n';
 	
 	// Start execution time measurement
 	auto start = chrono::system_clock::now();
@@ -41,17 +45,19 @@ int main (int argc, char** argv) {
 	tsp->findPath();
 	vector<int> path = tsp->getPath();
 	double cost = tsp->getCost();
+	int nb_nodes = tsp->getNumberOfNodes();
 	
 	// Measure execution time
 	auto end = chrono::system_clock::now();
 	auto elapsed = chrono::duration_cast<chrono::microseconds>(end - start);
 	
 	// Output results to terminal
-	cout << "\nPath:" << '\t';
+	cout << "Path:" << '\t';
 	for (int i = 0; i < path.size(); ++i)
 		cout << path[i] << " -> ";
 	cout << "0\n";
 	cout << "Cost: " << cost << '\n';
+	cout << "Number of generated nodes: " << nb_nodes << '\n';
 	cout << "Elapsed time: " << elapsed.count() << " us\n";
 	
 	// Generate graph	

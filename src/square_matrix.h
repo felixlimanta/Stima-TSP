@@ -1,3 +1,7 @@
+// File		: square_matrix.h
+// Author	: Felix Limanta
+// Date		: March 30, 2017
+
 #include <cstdlib>
 #include <iostream>
 #include <limits>
@@ -13,30 +17,30 @@ class SquareMatrix {
 		static const int DEF_SIZE;
 		double** data;
 		int size;
-		
+
 	public:
 		class SquareMatrixRow {
 			private:
 				double* row;
-				
+
 			public:
 				SquareMatrixRow(double* row): row(row) { }
-				
+
 				double operator[](size_t index) const {
 					return row[index];
 				}
 		};
-		
-		SquareMatrix(int size = DEF_SIZE);	
+
+		SquareMatrix(int size = DEF_SIZE);
 		SquareMatrix(const SquareMatrix& m);
 		~SquareMatrix();
-		
+
 		SquareMatrix& operator=(const SquareMatrix& m);
 		SquareMatrixRow operator[](size_t index) const {
 			return SquareMatrixRow(data[index]);
 		}
 		friend ostream& operator<<(ostream& os, const SquareMatrix& m);
-		
+
 		void setData(size_t i, size_t j, double data);
 		double** getData() const;
 		double getData(size_t i, size_t j) const;

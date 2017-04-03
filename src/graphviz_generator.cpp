@@ -1,3 +1,7 @@
+// File		: graphviz_gnerator.cpp
+// Author	: Felix Limanta
+// Date		: March 31, 2017
+
 #include "graphviz_generator.h"
 #include <cmath>
 #include <fstream>

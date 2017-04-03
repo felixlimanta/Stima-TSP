@@ -1,9 +1,12 @@
+// File		: tsp.cpp
+// Author	: Felix Limanta
+// Date		: March 31, 2017
+
 #include "square_matrix.h"
 #include "node.h"
 #include "complete_tour_weight_node.h"
 #include "reduced_cost_matrix_node.h"
 #include <algorithm>
-
 using namespace std;
 
 #ifndef TSP_H
@@ -30,10 +33,9 @@ class TSP {
 		SquareMatrix matrix;
 		Node* root;
 		vector<Leaf> leaves;
-		
-		
 		vector<int> final_path;
 		double final_cost;
+		int no_of_generated_nodes;
 		
 	public:
 		TSP(int method, const SquareMatrix& m);
@@ -41,6 +43,7 @@ class TSP {
 		
 		vector<int>& getPath();	
 		double getCost();
+		int getNumberOfNodes();
 		
 		void findPath();
 		void expandNode(Node& n);

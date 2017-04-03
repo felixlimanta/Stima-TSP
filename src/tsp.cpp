@@ -1,12 +1,18 @@
+// File		: tsp.cpp
+// Author	: Felix Limanta
+// Date		: March 31, 2017
+
 #include "tsp.h"
 
 TSP::TSP (int method, const SquareMatrix& m) {
 	matrix = m;
-	if (method == REDUCED_COST_MATRIX) {
-		root = new ReducedCostMatrixNode(0, m);
-	} else if (method == COMPLETE_TOUR_WEIGHT) {
+	if (method == COMPLETE_TOUR_WEIGHT) {
+		CompleteTourWeightNode::findMinimumEdges(m);
 		root = new CompleteTourWeightNode(0, m);
+	} else {		
+		root = new ReducedCostMatrixNode(0, m);
 	}
+	no_of_generated_nodes = 1;
 	leaves.push_back(Leaf(root->getCost(),root));	
 	make_heap(leaves.begin(),leaves.end(),LeafComparator());
 }
@@ -21,6 +27,10 @@ vector<int>& TSP::getPath() {
 
 double TSP::getCost() {
 	return final_cost;
+}
+
+int TSP::getNumberOfNodes() {
+	return no_of_generated_nodes;
 }
 
 void TSP::findPath() {
@@ -52,6 +62,7 @@ void TSP::expandNode(Node& n) {
 		if (child[i] != NULL)
 			leaves.push_back(Leaf(child[i]->getCost(), child[i]));
 			push_heap(leaves.begin(),leaves.end(),LeafComparator());
+			no_of_generated_nodes++;
 	}	
 }
 

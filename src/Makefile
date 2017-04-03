@@ -1,5 +1,5 @@
 CC = g++
-OPTIONS = -std=c++11
+OPTIONS = -std=c++11 -o3
 SRC = $(wildcard *.cpp)
 OBJS = $(SRC:.cpp=.o)
 BIN = ../bin/tsp.exe
